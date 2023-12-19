@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html class="html" lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -78,6 +78,7 @@
                     </li>
 
                     <li id="iconespaço"><i id="mode_icon" class="fa-solid fa-moon"></i></li>
+
                     <li>
                         <div class="container">
                             <input type="text" name="text" id="pesquise" class="input" required=""
@@ -103,7 +104,7 @@
 
     <div id="pontos" class="pontos">
         <div class="pontos-conteudo">
-            <img src="img/logo-img.png" alt="">
+            <img id="logo-img-pontos" src="img/logo-img.png" alt="">
             <i onclick="aparecer()" class="fa-solid fa-share-from-square"></i>
             <div class="pontos-textos">
                 <h6>confira os pontos</h6>
@@ -115,6 +116,25 @@
         </div>
         <img onclick="aparecer()" id="pontos-img" src="img/food.png" alt="">
     </div>
+
+    <form class="form">
+        <label for="search">
+            <input required="" autocomplete="off" placeholder="Pesquise aqui..." id="search" type="text">
+            <div class="icon">
+                <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-on">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round" stroke-linecap="round"></path>
+                </svg>
+                <svg stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-off">
+                    <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linejoin="round" stroke-linecap="round"></path>
+                </svg>
+            </div>
+            <button type="reset" class="close-btn">
+                <svg viewBox="0 0 20 20" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+                </svg>
+            </button>
+        </label>
+    </form>
 
     <section class="fffff">
         <div class="container-carrossel">
@@ -371,6 +391,33 @@
             }
         }
 
+        // function filtrarProdutos() {
+        //     var input, filter, itemCaixa, i, nome;
+        //     input = document.getElementsByClassName(".form");
+        //     filter = input.value.toUpperCase();
+        //     itemCaixa = document.getElementsByClassName("item-caixa-inicio");
+        //     nenhumItemEncontrado = document.getElementById("nenhumItemEncontrado");
+
+        //     // Inicialmente, esconda a mensagem "Nenhum item encontrado"
+        //     nenhumItemEncontrado.style.display = "none";
+
+        //     for (i = 0; i < itemCaixa.length; i++) {
+        //         nome = itemCaixa[i].getElementsByClassName("nome")[0].textContent.toUpperCase();
+
+        //         if (nome.indexOf(filter) > -1) {
+        //             itemCaixa[i].style.display = "";
+        //         } else {
+        //             itemCaixa[i].style.display = "none";
+        //         }
+        //     }
+
+        //     // Verifique se nenhum item foi encontrado e exiba a mensagem correspondente
+        //     const itensVisiveis = Array.from(itemCaixa).some(caixa => caixa.style.display === "");
+        //     if (!itensVisiveis) {
+        //         nenhumItemEncontrado.style.display = "block";
+        //     }
+        // }
+
         //fim barra de pesquisa
 
         // começo menu responsivo
@@ -402,8 +449,15 @@
         const conteudo = document.getElementById('itens-geral');
         const caixa = document.getElementsByClassName('item-caixa-inicio');
         const logoImg = document.getElementById('logo-img');
+        const logoImgPontos = document.getElementById('logo-img-pontos');
         const nenhum = document.getElementById('nenhumItemEncontrado');
         const ul = document.ul;
+        const html = document.html
+        const arte = document.getElementById('conteudoArte');
+        const pontos = document.getElementById('pontos-conteudo');
+        const borda = document.getElementById('pontosFinaiss')
+        const pesquisa = document.getElementsByClassName('.input');
+        const lupa = document.getElementsByClassName('.fa-magnifying-glass');
 
         mode.addEventListener('click', () => {
             if (mode.classList.contains('fa-moon')) {
@@ -411,21 +465,35 @@
                 mode.classList.add('fa-sun');
                 body.classList.add('modo-noturno');
                 logoImg.src = 'img/logo-white.png';
+                logoImgPontos.src = 'img/logo-white.png';
                 itens.classList.add('modo-noturno');
                 conteudo.classList.add('modo-noturno');
                 nenhum.classList.add('modo-noturno');
                 caixa.classList.add('modo-noturno');
                 ul.classList.add('modo-noturno');
+                html.classList.add('modo-noturno');
+                arte.classList.add('modo-noturno');
+                pontos.classList.add('modo-noturno');
+                borda.classList.add('modo-noturno');
+                pesquisa.classList.add('modo-noturno');
+                lupa.classList.add('modo-noturno');
             } else {
                 mode.classList.add('fa-moon');
                 mode.classList.remove('fa-sun');
                 body.classList.remove('modo-noturno');
                 logoImg.src = 'img/logo-img.png';
+                logoImgPontos.src = 'img/logo-img.png';
                 itens.classList.remove('modo-noturno');
                 conteudo.classList.remove('modo-noturno');
                 nenhum.classList.remove('modo-noturno');
                 caixa.classList.remove('modo-noturno');
                 ul.classList.remove('modo-noturno');
+                html.classList.remove('modo-noturno');
+                arte.classList.remove('modo-noturno');
+                pontos.classList.remove('modo-noturno');
+                borda.classList.remove('modo-noturno');
+                pesquisa.classList.remove('modo-noturno');
+                lupa.classList.remove('modo-noturno');
             }
         });
 
