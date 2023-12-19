@@ -31,13 +31,12 @@ body {
     background-color: var(--color-neutral-140);
 }
 
-#logo-img-pontos {
+.pontos-conteudo img {
     width: 120px;
-    margin-right: 290px;
+    margin-right: 70px;
 }
-
 .pontos-topo i{
-    font-weight: 1200px;
+    font-weight: 1200;
 }
 
 #sair {
@@ -87,7 +86,7 @@ body {
     border-radius: 30px;
     width: 200px;
     padding: 5px;
-    background-color: #A07573;
+    color: #CDACAA;
 }
 
 .pontos-textos p{
@@ -106,9 +105,9 @@ body {
     display: none;
 } */
 
-.form {
-    display: none;
-}
+
+
+
 
 
 
@@ -220,36 +219,9 @@ body.modo-noturno #moon_icon {
     background-color: var(--color-neutral-10);
 }
 
-.modo-noturno #conteudoArte {
-    background-color: var(--color-neutral-10);
-}
-
-.modo-noturno .pontos-conteudo {
-    background-color: var(--color-neutral-10);
-    box-shadow: 0px 0px 30px 6px rgba(139, 139, 139, 0.75);
-}
-
 .modo-noturno #emaus {
     color: #fff;
 }
-
-.modo-noturno .input {
-    background-color: #fff;
-    color: black;
-}
-
-.modo-noturno .input::placeholder {
-    color: black;
-}
-
-.modo-noturno #pontosFinaiss {
-    border-color: #fff;
-}
-
-.modo-noturno .fa-magnifying-glass {
-    color: black;
-}
-
 /*fim modo noturno*/
 
 
@@ -409,14 +381,10 @@ menu>ul>li>a:hover {
     outline: none;
     width: 0px;
     transition: all ease 0.3s;
-    background-color: var(--color-neutral-10);
+    background-color: #191A1E;
     box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
     border-radius: 200px;
     cursor: pointer;
-}
-
-.input::placeholder{
-    color: white;
 }
 
 .input:focus,
@@ -624,12 +592,11 @@ menu>ul>li>a:hover {
 
 #conteudoArte {
     padding: 70px 250px;
-    text-align: center;   
+    text-align: center;
 }
 
 #conteudoArte button {
     margin-top: -100px;
- 
 }
 
 #arte {
@@ -1309,6 +1276,93 @@ h1 {
 
 
 
+/* começo pagina de pagamento */
+
+
+
+#finalizarPedido {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#finalizarPedido:hover {
+    background-color: #45a049;
+}
+
+#mensagemSucesso,
+#mensagemErro {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+}
+
+#mensagemSucesso {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#mensagemErro {
+    background-color: #f44336;
+    color: #fff;
+}
+
+/* fim pagina de pagamento */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1421,7 +1475,7 @@ h3 {
 
 
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 985px) {
     #footer-corpo {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;

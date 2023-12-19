@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pagamento emaus</title>
+    <title>coletivo emaus</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,246 +13,74 @@
     <link rel="stylesheet" href="mediascreen.css">
     <link class="icon" rel="icon" href="img/icone.png">
     <style>
-        body{
-            height: auto;
-        }
-        section {
-            max-width: 970px;
-            margin: 20px 240px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+/* Seção de Resumo de Compra */
+#resumo-compra {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
 
-        #comprovantePix input[type="file"] {
-            display: none;
-        }
+/* Seção de Dados do Usuário */
+#dados-usuario {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
 
-        header{
-            margin-top: -20px;
-        }
+/* Seção de Endereço de Entrega */
+#endereco {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
 
-        button {
-            color: #BF8B86;
-            background-color: #F1E3E1;
-            border-radius: 50px;
-            padding: 10px 20px;
-            font-weight: bolder;
-        }
+#endereco label {
+    display: block;
+    margin-bottom: 5px;
+}
 
-        button:hover {
-            background-color: #333;
-            color: #fff;
-        }
+#endereco input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-        #carrinho-resumo .item-resumo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #ddd;
-            padding: 10px;
-        }
+/* Seção de Opções de Pagamento */
+#pagamento {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
 
-        #carrinho-resumo img {
-            max-width: 25%;
-            height: auto;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
+#pagamento div {
+    margin-bottom: 15px;
+}
 
-        /* Seção de Dados do Usuário */
-        #dados-usuario {
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
+/* Botão de Finalizar Pedido */
+#finalizarPedido {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+/* Mensagens de Sucesso e Erro */
+#mensagemSucesso, #mensagemErro {
+    padding: 20px;
+    margin-top: 20px;
+    display: none;
+}
 
+#mensagemSucesso {
+    background-color: #4caf50;
+    color: #fff;
+}
 
-        #endereco label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        #endereco input {
-            width: 98%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        /* Seção de Opções de Pagamento */
-        #pagamento {
-            padding: 20px;
-        }
-
-        #pagamento div {
-            margin-bottom: 15px;
-        }
-
-        /* Mensagens de Sucesso e Erro */
-        #mensagemSucesso,
-        #mensagemErro {
-            padding: 20px;
-            margin-top: 20px;
-            display: none;
-        }
-
-        #mensagemSucesso {
-            background-color: #4caf50;
-            color: #fff;
-        }
-
-        #mensagemErro {
-            background-color: #f44336;
-            color: #fff;
-        }
-
-        #carrinho-resumo .itens-lista {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        #resumo-compra h2{
-            margin-top: 40px;
-        }
-
-
-        #resumo-compra img {
-            max-width: 25%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        #resumo-compra div {
-            margin-bottom: 10px;
-        }
-
-        #resumo-compra p {
-            margin: 5px 0;
-        }
-
-        #resumo-compra button {
-            padding: 10px 20px;
-            background-color: #BF8B86;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #resumo-compra button:hover {
-            background-color: #333;
-        }
-
-        #cartaoSection {
-            display: none;
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        #cartaoSection h3 {
-            color: #333;
-            font-size: 1.5em;
-        }
-
-        .InputContainer {
-            margin-bottom: 20px;
-        }
-
-        .inputCartao {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .visaCard {
-            display: flex;
-            align-items: center;
-        }
-
-        #cartaoSection label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        #cartaoSection input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        #cartaoSection input[type="submit"] {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #cartaoSection input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        #pixSection {
-            max-width: 400px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        #pixSection h3 {
-            color: #333;
-            font-size: 1.5em;
-        }
-
-        #pixSection p {
-            color: #555;
-        }
-
-        #qrCodePix {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        #pix-link-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #pix-link {
-            font-size: 10px;
-            flex-grow: 1;
-            margin-right: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
+#mensagemErro {
+    background-color: #f44336;
+    color: #fff;
+}
     </style>
 </head>
 
@@ -267,12 +95,10 @@
                     <li><a id="espaço" href="moletonsemaus.html">moletons</a></li>
                     <li><a id="espaço" href="unissexemaus.html">unissex</a></li>
                     <li><a id="espaço" href="acessoriosemaus.html">acessórios</a></li>
-                    <li><a id="espaço" href="pontosemaus.html">pontos</a></li>
+                    <li><a id="espaço" href="#">pontos</a></li>
                     <li><a id="iconespaço" class="imgmenu" href="tel:(11) 3425-7299"><i
                                 class="fa-solid fa-phone"></i></a></li>
                     <li><a id="iconespaço" class="imgmenu" href="loginemaus.html"><i class="fa-solid fa-user"></i></a>
-                    </li>
-                    <li><a id="iconespaço" class="imgmenu" href="jogoemaus.html"><i class="fa-solid fa-gamepad"></i></a>
                     </li>
                     <li id="carrinhoGeral">
                         <a id="iconespaço" class="imgmenu" href="carrinhoemaus.html">
@@ -280,21 +106,21 @@
                             <div id="contagem" class="contagem">0</div>
                         </a>
                     </li>
-
+                    <!-- <li><a id="iconespaço" class="imgmenu" href="jogoemaus.html"><i class="fa-solid fa-gamepad"></i></a></li> -->
                     <li id="iconespaço"><i id="mode_icon" class="fa-solid fa-moon"></i></li>
                     <li>
-                        <div class="container">
-                            <input type="text" name="text" id="pesquise" class="input" required=""
-                                placeholder="Pesquise aqui..." oninput="filtrarProdutos()">
-                            <div class="icon">
-                                <i class="fa-solid fa-magnifying-glass">
-                                    <title>Search</title>
-                                    <path d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
-                                        fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32">
-                                    </path>
-                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
-                                        stroke-miterlimit="10" stroke-width="32" d="M338.29 338.29L448 448"></path>
-                                </i>
+                        <div class="barraPesquisar">
+                            <input checked="" class="checkbox" type="checkbox">
+                            <div class="mainbox">
+                                <div class="iconContainer">
+                                    <svg viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"
+                                        class="search_icon">
+                                        <path
+                                            d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <input class="search_input" placeholder="pesquisar" type="text">
                             </div>
                         </div>
                     </li>
@@ -310,70 +136,67 @@
         </div>
     </section>
 
-    <!-- Seção de Endereço de Entrega -->
-    <section id="endereco">
-        <h2>Endereço de Entrega</h2>
-        <label for="rua">Rua:</label>
-        <input type="text" id="rua" name="rua" placeholder="Nome da Rua">
-
-        <label for="bairro">Bairro:</label>
-        <input type="text" id="bairro" name="bairro" placeholder="Nome do Bairro">
-
-        <label for="cidade">Cidade:</label>
-        <input type="text" id="cidade" name="cidade" placeholder="Nome da Cidade">
-
-        <label for="estado">Estado:</label>
-        <input type="text" id="estado" name="estado" placeholder="Estado">
-
-        <label for="pais">País:</label>
-        <input type="text" id="pais" name="pais" placeholder="País">
-
-        <label for="numero">Número:</label>
-        <input type="text" id="numero" name="numero" placeholder="Número">
-
-        <label for="complemento">Complemento:</label>
-        <input type="text" id="complemento" name="complemento" placeholder="Complemento">
+    <section id="dados-usuario">
+        <h2>Dados do Usuário</h2>
+        <p>Nome do Usuário: <span id="nome-usuario"></span></p>
+        <!-- Outras informações do usuário podem ser adicionadas aqui -->
     </section>
+
+
+   <!-- Seção de Endereço de Entrega -->
+<section id="endereco">
+    <h2>Endereço de Entrega</h2>
+    <label for="rua">Rua:</label>
+    <input type="text" id="rua" name="rua" placeholder="Nome da Rua">
+
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" name="bairro" placeholder="Nome do Bairro">
+
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" placeholder="Nome da Cidade">
+
+    <label for="estado">Estado:</label>
+    <input type="text" id="estado" name="estado" placeholder="Estado">
+
+    <label for="pais">País:</label>
+    <input type="text" id="pais" name="pais" placeholder="País">
+
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" placeholder="Número">
+
+    <label for="complemento">Complemento:</label>
+    <input type="text" id="complemento" name="complemento" placeholder="Complemento">
+</section>
 
 
     <section id="pagamento">
         <h2>Opções de Pagamento</h2>
-
+    
         <!-- Escolha entre PIX ou Cartão -->
         <div>
             <input type="radio" id="opcaoPix" name="opcaoPagamento" value="pix" checked>
             <label for="opcaoPix">PIX</label>
-
+    
             <input type="radio" id="opcaoCartao" name="opcaoPagamento" value="cartao">
-            <label for="opcaoCartao">Cartão de Crédito ou Débitoix</label>
+            <label for="opcaoCartao">Cartão de Crédito</label>
         </div>
-
+    
         <!-- Seção específica para PIX -->
         <div id="pixSection">
             <h3>Pagamento com PIX</h3>
-            <p>Para realizar o pagamento com PIX, escaneie o QR code abaixo:</p>
-            <!-- Adicione a imagem do QR code abaixo -->
-            <img src="img/pix.jpeg" alt="QR Code PIX" id="qrCodePix">
+            <p>Para realizar o pagamento com PIX, copie o seguinte link:</p>
             <div id="pix-link-container">
+                <!-- Gere um link aleatório aqui -->
                 <p id="pix-link">https://seu-banco.com/pix?id=123456789</p>
                 <button onclick="copiarLinkPix()">Copiar Link PIX</button>
             </div>
-
-            <!-- Adicione a caixa para o comprovante do PIX -->
-            <div id="comprovantePix">
-                <label for="uploadComprovante">Clique agora aqui e deixe o seu comprovante</label>
-                <input type="file" id="uploadComprovante" accept="image/*" onchange="exibirComprovante()">
-                <!-- Adicione uma tag de imagem para exibir a imagem do comprovante -->
-                <img id="previewComprovante" style="max-width: 100%; height: auto; margin-top: 10px; display: none;"
-                    alt="Comprovante">
-            </div>
         </div>
-
+    
         <!-- Seção específica para Cartão de Crédito -->
         <div id="cartaoSection" style="display: none;">
-            <h3>Pagamento com Cartão </h3>
+            <h3>Pagamento com Cartão de Crédito</h3>
             <div class="InputContainer">
-                <input placeholder="0000 0000 0000 0000" id="input" class="inputCartao" name="text" type="text">
+                <input placeholder="0000 0000 0000 0000" id="input" class="input" name="text" type="text">
                 <div class="visaCard">
                     <svg viewBox="0 0 48 48" height="23" width="23" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg"
                         class="logo">
@@ -387,25 +210,22 @@
             </div>
             <label for="cvc">CVC:</label>
             <input type="text" id="cvc" name="cvc" placeholder="CVC">
-
+    
             <label for="validade">Data de Validade:</label>
             <input type="text" id="validade" name="validade" placeholder="MM/AAAA">
         </div>
-
-
     </section>
 
-    <section id="pedido">
-        <button id="finalizarPedido" onclick="verificarCampos()">Finalizar Pedido</button>
 
-        <div id="mensagemSucesso" style="display: none;">
-            <p>Seu pedido foi enviado!</p>
-        </div>
+    <button id="finalizarPedido" onclick="verificarCampos()">Finalizar Pedido</button>
 
-        <div id="mensagemErro" style="display: none;">
-            <p>Preencha todos os campos para finalizar o seu pedido.</p>
-        </div>
-    </section>
+    <div id="mensagemSucesso" style="display: none;">
+        <p>Seu pedido foi enviado!</p>
+    </div>
+
+    <div id="mensagemErro" style="display: none;">
+        <p>Preencha todos os campos para finalizar o seu pedido.</p>
+    </div>
 
 
 
@@ -521,145 +341,41 @@
     // =recebe -->
     <script>
 
-         // começo modo noturno
-
-         const mode = document.getElementById('mode_icon');
-        const body = document.body;
-        const itens = document.getElementById('itens-geral');
-        const conteudo = document.getElementById('itens-geral');
-        const caixa = document.getElementsByClassName('item-caixa-inicio');
-        const logoImg = document.getElementById('logo-img');
-        const logoImgPontos = document.getElementById('logo-img-pontos');
-        const nenhum = document.getElementById('nenhumItemEncontrado');
-        const ul = document.ul;
-        const html = document.html
-        const arte = document.getElementById('conteudoArte');
-        const pontos = document.getElementById('pontos-conteudo');
-        const borda = document.getElementById('pontosFinaiss')
-        const pesquisa = document.getElementsByClassName('.input');
-        const lupa = document.getElementsByClassName('.fa-magnifying-glass');
-
-        mode.addEventListener('click', () => {
-            if (mode.classList.contains('fa-moon')) {
-                mode.classList.remove('fa-moon');
-                mode.classList.add('fa-sun');
-                body.classList.add('modo-noturno');
-                logoImg.src = 'img/logo-white.png';
-                logoImgPontos.src = 'img/logo-white.png';
-                itens.classList.add('modo-noturno');
-                conteudo.classList.add('modo-noturno');
-                nenhum.classList.add('modo-noturno');
-                caixa.classList.add('modo-noturno');
-                ul.classList.add('modo-noturno');
-                html.classList.add('modo-noturno');
-                arte.classList.add('modo-noturno');
-                pontos.classList.add('modo-noturno');
-                borda.classList.add('modo-noturno');
-                pesquisa.classList.add('modo-noturno');
-                lupa.classList.add('modo-noturno');
-            } else {
-                mode.classList.add('fa-moon');
-                mode.classList.remove('fa-sun');
-                body.classList.remove('modo-noturno');
-                logoImg.src = 'img/logo-img.png';
-                logoImgPontos.src = 'img/logo-img.png';
-                itens.classList.remove('modo-noturno');
-                conteudo.classList.remove('modo-noturno');
-                nenhum.classList.remove('modo-noturno');
-                caixa.classList.remove('modo-noturno');
-                ul.classList.remove('modo-noturno');
-                html.classList.remove('modo-noturno');
-                arte.classList.remove('modo-noturno');
-                pontos.classList.remove('modo-noturno');
-                borda.classList.remove('modo-noturno');
-                pesquisa.classList.remove('modo-noturno');
-                lupa.classList.remove('modo-noturno');
-            }
-        });
+function obterNomeUsuarioLogado() {
+    return localStorage.getItem('nomeUsuario') || 'Nome do Usuário Desconhecido';
+}
 
 
-         // começo menu responsivo
 
-
-         function mudouTamanho() {
-            if (window.innerWidth >= 768) {
-                itensMenu.style.display = 'block'
-            } else {
-                itensMenu.style.display = 'none'
-            }
-        }
-
-        function clickMenu() {
-            if (itensMenu.style.display == 'block') {
-                itensMenu.style.display = 'none'
-            } else {
-                itensMenu.style.display = 'block'
-            }
-        }
-
-        //fim menu responsivo
-
-        function exibirComprovante() {
-            var inputComprovante = document.getElementById("uploadComprovante");
-            var previewComprovante = document.getElementById("previewComprovante");
-
-            if (inputComprovante.files && inputComprovante.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    previewComprovante.src = e.target.result;
-                    previewComprovante.style.display = "block";
-                };
-
-                reader.readAsDataURL(inputComprovante.files[0]);
-            }
-        }
-
-        function obterNomeUsuarioLogado() {
-            return localStorage.getItem('nomeUsuario') || 'Nome do Usuário Desconhecido';
-        }
-
-        // Função para exibir o resumo da compra
-        function exibirResumoCompra() {
+        // Função para carregar os itens do carrinho do armazenamento local
+        function carregarItensCarrinho() {
             const carrinho = localStorage.getItem('carrinho');
-            const resumoCompra = document.getElementById('carrinho-resumo');
+            const carrinhoResumo = document.getElementById('carrinho-resumo');
 
             if (carrinho) {
                 const carrinhoItens = JSON.parse(carrinho);
 
-                // Limpa o conteúdo atual do resumo
-                resumoCompra.innerHTML = '';
+                carrinhoResumo.innerHTML = '';
 
                 carrinhoItens.forEach(item => {
                     const itemElement = document.createElement('div');
-                    itemElement.classList.add('item-resumo');
                     itemElement.innerHTML = `
-                        <img src="${item.imagem}" alt="${item.nome}">
-                        <div>
-                            <p>Produto: ${item.nome}</p>
-                            <p>Preço: R$ ${item.preco.toFixed(2)}</p>
-                            <p>Gênero: ${item.genero}</p>
-                            <p>Tamanho: ${item.tamanho}</p>
-                        </div>`;
-                    resumoCompra.appendChild(itemElement);
+                        <p>${item.nome} - R$${item.preco.toFixed(2)}</p>
+                        <!-- Adicione mais detalhes do item conforme necessário -->
+                    `;
+                    carrinhoResumo.appendChild(itemElement);
                 });
             }
         }
 
-        // Função para finalizar a compra
-        function finalizarCompra() {
-            const user = JSON.parse(localStorage.getItem('userData'));
+        // Chame as funções ao carregar a página
+        function carregarNomeUsuario() {
+    const nomeUsuario = obterNomeUsuarioLogado();
+    document.getElementById('nome-usuario').textContent = nomeUsuario;
+}
 
-            if (user && user.username) {
-                alert('Compra finalizada com sucesso!');
-                // Adicione aqui a lógica para redirecionar ou realizar outras ações após finalizar a compra.
-            } else {
-                alert('Você precisa estar logado para acessar ao pagamento!');
-                window.location.href = 'loginemaus.html';
-            }
-        }
+        carregarItensCarrinho();
 
-        // Função para copiar o link PIX
         function copiarLinkPix() {
             var copyText = document.getElementById("pix-link");
             var textArea = document.createElement("textarea");
@@ -671,11 +387,14 @@
             alert("Link PIX copiado!");
         }
 
-
         function verificarCampos() {
+    // Obtenha referências aos campos que você deseja verificar
     var camposEndereco = document.querySelectorAll("#endereco input");
+    var camposPagamento = document.querySelectorAll("#pagamento input");
 
-    var todosPreenchidos = Array.from(camposEndereco).every(campo => campo.value.trim() !== "");
+    // Verifique se todos os campos estão preenchidos
+    var todosPreenchidos = Array.from(camposEndereco).every(campo => campo.value.trim() !== "") &&
+        Array.from(camposPagamento).every(campo => campo.value.trim() !== "");
 
     if (todosPreenchidos) {
         // Ocultar mensagem de erro (caso esteja sendo exibida)
@@ -683,9 +402,6 @@
 
         // Exibir mensagem de sucesso
         document.getElementById("mensagemSucesso").style.display = "block";
-
-        // Redirecionar para a página comentarioemaus.html
-        window.location.href = "comentarioemaus.html";
     } else {
         // Ocultar mensagem de sucesso (caso esteja sendo exibida)
         document.getElementById("mensagemSucesso").style.display = "none";
@@ -693,39 +409,29 @@
         // Exibir mensagem de erro
         document.getElementById("mensagemErro").style.display = "block";
     }
-
-    // Remova a parte relacionada ao link PIX e à verificação de cartão de crédito
 }
 
 
-
-
-
-
         document.addEventListener('DOMContentLoaded', function () {
-            const opcaoPix = document.getElementById('opcaoPix');
-            const opcaoCartao = document.getElementById('opcaoCartao');
-            const pixSection = document.getElementById('pixSection');
-            const cartaoSection = document.getElementById('cartaoSection');
+        const opcaoPix = document.getElementById('opcaoPix');
+        const opcaoCartao = document.getElementById('opcaoCartao');
+        const pixSection = document.getElementById('pixSection');
+        const cartaoSection = document.getElementById('cartaoSection');
 
-            opcaoPix.addEventListener('change', function () {
-                if (opcaoPix.checked) {
-                    pixSection.style.display = 'block';
-                    cartaoSection.style.display = 'none';
-                }
-            });
-
-            opcaoCartao.addEventListener('change', function () {
-                if (opcaoCartao.checked) {
-                    pixSection.style.display = 'none';
-                    cartaoSection.style.display = 'block';
-                }
-            });
+        opcaoPix.addEventListener('change', function () {
+            if (opcaoPix.checked) {
+                pixSection.style.display = 'block';
+                cartaoSection.style.display = 'none';
+            }
         });
 
-        // Chamada inicial para exibir o resumo ao carregar a página
-        exibirResumoCompra();
-
+        opcaoCartao.addEventListener('change', function () {
+            if (opcaoCartao.checked) {
+                pixSection.style.display = 'none';
+                cartaoSection.style.display = 'block';
+            }
+        });
+    });
     </script>
 
     </script>

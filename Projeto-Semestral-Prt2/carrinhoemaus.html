@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="html" lang="pt-br">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -22,28 +22,11 @@
             justify-content: space-between;
         }
 
-        section {
-            display: block;
-            text-align: center;
-        }
-
         #carrinho {
-            max-width: 1238px;
-            margin: 0px auto;
-            padding: 50px 0;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
             /* min-height: 80vh; */
-        }
-
-        .modo-noturno #carrinho {
-            background-color: #171717;
-        }
-
-        .modo-noturno body {
-            background-color: #171717;
-        }
-
-        .modo-noturno #html {
-            background-color: #171717;
         }
 
         #carrinho-itens {
@@ -67,15 +50,26 @@
             text-align: center;
         }
 
-        button {
-            color: #BF8B86;
-            background-color: #F1E3E1;
-            border-radius: 50px;
-            padding: 10px 20px;
-            font-weight: bolder;
+        .nome {
+            font-size: 18px;
+            margin-bottom: 5px;
         }
 
-        button:hover {
+        .preco {
+            font-size: 16px;
+            color: green;
+        }
+
+        #remove {
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #333;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #remove:hover {
             background-color: #333;
             color: #fff;
         }
@@ -157,12 +151,12 @@
 
 
 
-    <p id="total-compra">Total: R$<span id="valor-total"></span></p>
+
 
     <section id="carrinho" class="selection">
         <div class="itens-lista" id="carrinho-itens"></div>
         <p id="carrinho-vazio-msg">Seu carrinho está vazio! Faça o login e inicie as compras.</p>
-        <a id="finalizar-compra" href="pagamentoemaus.html"><button>Fazer Pedido</button></a>
+        <a id="finalizar-compra" href="pagamentoemaus.html">Fazer Pedido</a>
     </section>
 
 
@@ -280,41 +274,11 @@
     // =recebe -->
     <script>
 
-        const totalCompra = calcularTotalCompra();
-        const valorTotalElement = document.getElementById('valor-total');
-
-        if (totalCompra !== null) {
-            valorTotalElement.textContent = totalCompra;
-            document.getElementById('total-compra').style.display = 'block'; // Exibe o elemento
-        } else {
-            document.getElementById('total-compra').style.display = 'none'; // Oculta o elemento
-        }
-
-        // Função para calcular o total da compra
-        function calcularTotalCompra() {
-            let carrinho = localStorage.getItem('carrinho') ? JSON.parse(localStorage.getItem('carrinho')) : [];
-
-            if (carrinho.length === 0) {
-                return null; // Retorna null se o carrinho estiver vazio
-            }
-
-            let total = 0;
-
-            carrinho.forEach(item => {
-                total += item.preco * (item.quantidade || 1);
-            });
-
-            return total.toFixed(2);
-        }
-
-
         // começo modo noturno
 
         const mode = document.getElementById('mode_icon');
         const body = document.body;
-        const html = document.getElementById('#html');
         const menu = document.getElementById('menu-geral');
-        const carrinho = document.getElementById('carrinho');
         const logoImg = document.getElementById('logo-img');
         const mode_icon = document.getElementById('mode_icon');
         const moon_icon = document.getElementById('moon_icon');
@@ -324,20 +288,14 @@
                 mode.classList.remove('fa-moon');
                 mode.classList.add('fa-sun');
                 body.classList.add('modo-noturno');
-
                 logoImg.src = 'img/logo-white.png';
                 menu.classList.add('modo-noturno');
-                carrinho.classList.add('modo-noturno');
-                html.classList.add('modo-noturno');
             } else {
                 mode.classList.add('fa-moon');
                 mode.classList.remove('fa-sun');
                 body.classList.remove('modo-noturno');
-
                 logoImg.src = 'img/logo-img.png';
                 menu.classList.remove('modo-noturno');
-                carrinho.classList.remove('modo-noturno');
-                html.classList.remove('modo-noturno');
             }
         });
 
@@ -561,7 +519,7 @@
                 carrinhoVazioMsg.style.display = "none"
             }
 
-            botaoFinalizarCompra.addEventListener('click', function (event) {
+            botaoFinalizarCompra.addEventListener('click', function(event){
                 event.preventDefault();
 
                 const user = JSON.parse(localStorage.getItem('userData'));
